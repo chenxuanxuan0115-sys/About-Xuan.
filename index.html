@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Xuan | 陈炫璇</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <nav class="navbar">
+        <div class="nav-logo">About Xuan.</div>
+        <div class="nav-links">
+            <a href="#education">求学经历 <small>Education</small></a>
+            <a href="#experience">工作/创业 <small>Experience</small></a>
+            <a href="#milestones">人生转折 <small>Milestones</small></a>
+            <a href="#favorites">书/影/音 <small>Favorites</small></a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-text">
+            <h1 class="parallax-target" data-speed="0.3">陈炫璇</h1>
+            <p class="parallax-target" data-speed="0.15">
+                活在当下 · 探索无际<br>
+                <span class="en-hero">Living in the moment, Exploring the infinite.</span>
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section id="education" class="section">
+            <div class="glass-container scroll-hidden">
+                <h2 class="title">求学经历 <span class="en-title">Education</span></h2>
+                <div class="list">
+                    <div class="list-item" onclick="openDetail('fudan')">
+                        <span class="year">2026 - PRESENT</span>
+                        <h3>复旦大学 <span class="en-sub">Fudan University</span></h3>
+                        <p>社会政策专业 <span class="en-desc">Social Policy</span></p>
+                    </div>
+                    <div class="list-item" onclick="openDetail('gdufs')">
+                        <span class="year">2021 - 2025</span>
+                        <h3>广东外语外贸大学 <span class="en-sub">GDUFS</span></h3>
+                        <p>金融工程专业 <span class="en-desc">Financial Engineering</span></p>
+                    </div>
+                    <div class="list-item" onclick="openDetail('gzms')">
+                        <span class="year">2018 - 2021</span>
+                        <h3>广州中学 <span class="en-sub">Guangzhou Middle School</span></h3>
+                        <p>高考分数 593 <span class="en-desc">NCEE Score: 593</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section gray-bg">
+            <div class="glass-container scroll-hidden">
+                <h2 class="title">工作 / 创业 <span class="en-title">Experience</span></h2>
+                <div class="grid">
+                    <div class="card" onclick="openDetail('mcd')">
+                        <h4>麦当劳校园配送创业 <br><span class="en-card-title">McDonald's Delivery Startup</span></h4>
+                        <p>从想法萌生到落地 <br><span class="en-card-desc">Independent Operation</span></p>
+                    </div>
+                    <div class="card" onclick="openDetail('xhs')">
+                        <h4>小红书个人账号运营 <br><span class="en-card-title">Content Creator (RED)</span></h4>
+                        <p>2000+粉丝与多个爆款 <br><span class="en-card-desc">Viral Content Strategy</span></p>
+                    </div>
+                    <div class="card" onclick="openDetail('fair')">
+                        <h4>2023秋季广交会实习 <br><span class="en-card-title">Canton Fair Internship</span></h4>
+                        <p>VIP俱乐部主管助理 <br><span class="en-card-desc">VIP Club Coordinator</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="milestones" class="section">
+            <div class="glass-container scroll-hidden">
+                <h2 class="title">改变人生的事 <span class="en-title">Life Milestones</span></h2>
+                <div class="milestone-flex">
+                    <div class="m-box" onclick="openDetail('sports')">
+                        <h3>体育竞技</h3>
+                        <span class="en-box">Athletics</span>
+                    </div>
+                    <div class="m-box" onclick="openDetail('surgery')">
+                        <h3>两次手术</h3>
+                        <span class="en-box">Surgeries</span>
+                    </div>
+                    <div class="m-box" onclick="openDetail('exam')">
+                        <h3>跨专业考研</h3>
+                        <span class="en-box">Cross-disciplinary Exam</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="favorites" class="section gray-bg">
+            <div class="glass-container scroll-hidden">
+                <h2 class="title">书 / 影 / 音 <span class="en-title">Favorites</span></h2>
+                <div class="fav-grid">
+                    <div class="fav-card" onclick="openDetail('books')">
+                        📖 <span>书籍 <small>Books</small></span>
+                    </div>
+                    <div class="fav-card" onclick="openDetail('music')">
+                        🎵 <span>音乐 <small>Music</small></span>
+                    </div>
+                    <div class="fav-card" onclick="openDetail('movies')">
+                        📺 <span>电视剧 <small>TV Series</small></span>
+                    </div>
+                    <div class="fav-card" onclick="openDetail('docs')">
+                        🎥 <span>纪录片 <small>Documentaries</small></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

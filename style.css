@@ -1,0 +1,260 @@
+:root {
+    --bg-white: #ffffff;
+    --bg-gray: #f5f5f7;
+    --text-main: #1d1d1f;
+    --text-sub: #86868b;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; cursor: none; /* 隐藏默认鼠标 */ }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+/* --- 1. 动态鼠标系统 --- */
+.cursor-dot { position: fixed; width: 8px; height: 8px; background: #000; border-radius: 50%; pointer-events: none; z-index: 10000; }
+.cursor-outline { position: fixed; width: 40px; height: 40px; border: 1px solid rgba(0,0,0,0.2); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease-out; }
+
+/* --- 2. 导航栏 --- */
+.navbar {
+    position: fixed; top: 0; width: 100%; padding: 15px 50px;
+    display: flex; justify-content: space-between; align-items: center;
+    z-index: 1000; background: rgba(255,255,255,0.75); backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.nav-logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
+.nav-links a { 
+    text-decoration: none; color: var(--text-main); 
+    margin-left: 30px; font-size: 15px; opacity: 0.8; transition: 0.3s; 
+    text-align: center; display: inline-block;
+}
+.nav-links a small {
+    display: block; font-size: 10px; color: var(--text-sub); 
+    font-weight: 400; margin-top: 2px; text-transform: uppercase;
+}
+.nav-links a:hover { opacity: 1; transform: translateY(-2px); }
+
+/* --- 3. 首页视差 Hero --- */
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+.hero-bg { 
+    position: absolute; width: 100%; height: 100%; 
+    background: radial-gradient(circle at center, #fff 0%, #e8e8ed 100%); 
+    z-index: -1; 
+}
+.hero-text { text-align: center; z-index: 1; }
+.hero-text h1 { font-size: 6rem; line-height: 1.1; font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
+.hero-text p { font-size: 1.6rem; color: var(--text-main); font-weight: 500; }
+.en-hero { display: block; font-size: 1.1rem; color: var(--text-sub); font-weight: 300; margin-top: 8px; }
+
+/* --- 4. 滚动淡入动效 (Scroll Reveal) --- */
+.scroll-hidden { opacity: 0; transform: translateY(60px); transition: all 1s cubic-bezier(0.16, 1, 0.3, 1); }
+.scroll-show { opacity: 1; transform: translateY(0); }
+
+/* --- 5. 板块与液态玻璃 --- */
+.section { min-height: 100vh; padding: 100px 50px; display: flex; justify-content: center; align-items: center; }
+.gray-bg { background-color: var(--bg-gray); }
+
+.glass-container {
+    width: 100%; max-width: 1000px; padding: 60px;
+    background: var(--glass-bg); backdrop-filter: blur(25px);
+    border-radius: 40px; border: 1px solid var(--glass-border);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+}
+
+.title { font-size: 3rem; margin-bottom: 50px; font-weight: 700; letter-spacing: -1px; }
+.en-title { display: block; font-size: 1.2rem; color: var(--text-sub); font-weight: 300; margin-top: 5px; letter-spacing: 0; }
+
+/* --- 6. 列表与卡片交互 --- */
+.list-item, .card, .m-box, .fav-card {
+    padding: 30px; border-radius: 24px; 
+    background: rgba(255,255,255,0.4); border: 1px solid transparent; 
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: none; /* 保持自定义鼠标 */
+}
+
+/* Hover 时的“浮起 + 发光”效果 */
+.list-item:hover, .card:hover, .m-box:hover, .fav-card:hover {
+    background: #fff; transform: scale(1.02) translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* 字体排版系统 */
+.year { font-size: 12px; color: var(--text-sub); font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+.en-sub, .en-desc, .en-card-title, .en-card-desc, .en-box { color: var(--text-sub); font-weight: 300; font-size: 0.9em; margin-left: 8px; }
+.en-card-title, .en-card-desc { display: block; margin-left: 0; margin-top: 4px; font-size: 0.85em; }
+
+/* 网格系统 */
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fav-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.milestone-flex { display: flex; gap: 20px; }
+
+.m-box { flex: 1; text-align: center; display: flex; flex-direction: column; justify-content: center; padding: 60px 20px; }
+.m-box h3 { font-size: 1.5rem; margin-bottom: 5px; }
+
+.fav-card { text-align: center; font-size: 1.2rem; font-weight: 600; }
+.fav-card span { display: block; margin-top: 10px; }
+.fav-card small { display: block; font-size: 0.8rem; color: var(--text-sub); font-weight: 400; margin-top: 4px; }
+
+/* --- 7. 详情弹窗 (Modal) --- */
+.modal { 
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.2); backdrop-filter: blur(15px); z-index: 5000; 
+    justify-content: center; align-items: center; 
+}
+.modal-content { 
+    background: rgba(255,255,255,0.9); padding: 50px; border-radius: 30px; 
+    max-width: 700px; width: 90%; position: relative; 
+    box-shadow: 0 40px 80px rgba(0,0,0,0.15); border: 1px solid rgba(255,255,255,0.8);
+    animation: popIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes popIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+
+.close { position: absolute; right: 30px; top: 25px; font-size: 30px; color: var(--text-sub); transition: 0.2s; }
+.close:hover { color: var(--text-main); transform: rotate(90deg); }
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .grid, .fav-grid, .milestone-flex { grid-template-columns: 1fr; flex-direction: column; }
+    .hero-text h1 { font-size: 4rem; }
+    .nav-links { display: none; }
+}
+
+/* 弹窗内容的标签样式 */
+.detail-tag {
+    display: inline-block;
+    background: #f5f5f7;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #86868b;
+    margin-right: 8px;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* 弹窗内的列表项优化 */
+.detail-content ul li {
+    line-height: 1.6;
+    position: relative;
+}
+
+/* 让弹窗内容太多时可以滚动 */
+.modal-content {
+    max-height: 85vh; /* 限制最大高度 */
+    overflow-y: auto; /* 超出部分显示滚动条 */
+}
+
+/* 隐藏滚动条但保留功能 (Webkit浏览器) */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+/* --- 详情页优化样式 --- */
+
+/* 1. 小标题通用样式 */
+.subsection-title {
+    font-size: 1rem;
+    color: #86868b; /* 苹果灰 */
+    margin: 30px 0 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+/* 2. 成绩网格 (Score Grid) */
+.score-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* 左边窄一点，右边宽一点 */
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.score-card {
+    background: #f5f5f7;
+    padding: 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-score {
+    background: #1d1d1f; /* 深色背景强调主分 */
+    color: #fff;
+}
+
+.score-label {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.score-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #fff; /* 金色或者纯白 */
+}
+
+.score-sub {
+    font-size: 0.7rem;
+    opacity: 0.5;
+    margin-top: 5px;
+}
+
+.score-text {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #1d1d1f;
+}
+
+/* 3. 干净的列表 (Clean List) */
+.clean-list {
+    list-style: none;
+    padding: 0;
+}
+
+.clean-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 20px; /* 增加条目间距 */
+    border-left: 2px solid #e5e5ea; /* 左侧装饰线 */
+}
+
+.clean-list li strong {
+    display: block;
+    font-size: 1.05rem;
+    color: #1d1d1f;
+    margin-bottom: 4px;
+}
+
+.clean-list li p {
+    font-size: 0.9rem;
+    color: #86868b;
+    margin: 0;
+}
+
+/* 4. 双栏布局 (用于在大屏幕上并排显示 竞技和活动) */
+.two-col-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+/* 移动端适配：手机上变回单列 */
+@media (max-width: 600px) {
+    .two-col-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
