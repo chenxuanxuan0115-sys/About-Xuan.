@@ -258,3 +258,79 @@ body {
         gap: 0;
     }
 }
+
+/* --- 底部样式 --- */
+.footer {
+    background: #f5f5f7;
+    padding: 60px 50px 30px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+}
+
+.footer-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
+.footer-info p { color: var(--text-sub); font-size: 0.9rem; }
+
+.footer-links a {
+    display: block;
+    color: var(--text-main);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.footer-links a:hover { color: #0071e3; }
+
+.footer-bottom {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 30px;
+    font-size: 0.8rem;
+    color: #a1a1a6;
+}
+
+/* --- 响应式手机端适配 (重点) --- */
+@media (max-width: 768px) {
+    /* 1. 缩小 Hero 区域字体，避免换行尴尬 */
+    .hero-text h1 { font-size: 3.5rem; letter-spacing: -1px; }
+    .hero-text p { font-size: 1.2rem; }
+    
+    /* 2. 调整板块间距和容器圆角 */
+    .section { padding: 60px 20px; }
+    .glass-container { padding: 30px 20px; border-radius: 30px; }
+    .title { font-size: 2.2rem; margin-bottom: 30px; }
+
+    /* 3. 让详情页的双栏布局在手机上变单栏 */
+    .two-col-layout {
+        display: block; /* 强制垂直排列 */
+    }
+    .score-grid {
+        grid-template-columns: 1fr; /* 分数卡片上下排 */
+    }
+    
+    /* 4. 详情弹窗适配 */
+    .modal-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+    .score-num { font-size: 2rem; }
+
+    /* 5. 底部适配 */
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* 6. 导航栏自适应：在手机上隐藏英文小字节省空间 */
+    .nav-links a small { display: none; }
+    .nav-links a { margin-left: 15px; font-size: 14px; }
+}
