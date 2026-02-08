@@ -258,79 +258,254 @@ body {
         gap: 0;
     }
 }
+/* --- 新增：底部交互 (Hover Reveal) --- */
+.footer-interactive {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
 
-/* --- 底部样式 --- */
+.hover-reveal {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    height: 24px; /* 控制显示高度 */
+    line-height: 24px;
+}
+
+.hover-reveal span {
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-reveal .original {
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.hover-reveal .reveal-text {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #0071e3; /* 苹果蓝 */
+    font-weight: 600;
+    white-space: nowrap; /* 防止邮箱换行 */
+}
+
+/* 鼠标悬停时的动作：文字上推 */
+.hover-reveal:hover .original {
+    transform: translateY(-100%);
+}
+.hover-reveal:hover .reveal-text {
+    transform: translateY(-100%);
+}
+/* --- 1. 底部优化 (优雅排列) --- */
 .footer {
     background: #f5f5f7;
-    padding: 60px 50px 30px;
+    padding: 80px 50px 40px;
     border-top: 1px solid rgba(0,0,0,0.05);
 }
 
 .footer-content {
     max-width: 1000px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding-bottom: 40px;
+    display: flex; /* 让内容横向排列 */
+    justify-content: space-between; /* 两端对齐 */
+    align-items: flex-start; /* 顶部对齐 */
+    flex-wrap: wrap; /* 手机端自动换行 */
+    gap: 40px;
 }
 
-.footer-info h3 { font-size: 1.5rem; margin-bottom: 10px; }
-.footer-info p { color: var(--text-sub); font-size: 0.9rem; }
-
-.footer-links a {
-    display: block;
-    color: var(--text-main);
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    transition: 0.3s;
+.footer-section h3 { font-size: 1.1rem; margin-bottom: 20px; color: #1d1d1f; }
+.footer-section p, .footer-section a { 
+    display: block; 
+    color: #86868b; 
+    font-size: 0.9rem; 
+    margin-bottom: 12px; 
+    text-decoration: none; 
+    transition: color 0.3s;
 }
-.footer-links a:hover { color: #0071e3; }
+.footer-section a:hover { color: #0071e3; }
 
 .footer-bottom {
-    max-width: 1000px;
-    margin: 0 auto;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0,0,0,0.08);
     text-align: center;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    padding-top: 30px;
-    font-size: 0.8rem;
     color: #a1a1a6;
+    font-size: 0.8rem;
 }
 
-/* --- 响应式手机端适配 (重点) --- */
+/* --- 2. 爱好卡片去幼稚化 (大字体、无表情) --- */
+.fav-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* 居中对齐 */
+    height: 180px; /*稍微加高 */
+    font-size: 1.8rem; /* 字体加大 */
+    font-weight: 700; /* 加粗 */
+    letter-spacing: -0.5px;
+    color: #1d1d1f;
+}
+.fav-card span { display: block; }
+.fav-card small {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #86868b;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 3. 弹窗内部：Tab 切换系统 --- */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 15px;
+}
+.tab-btn {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #86868b;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.3s;
+    position: relative;
+}
+.tab-btn.active { color: #1d1d1f; }
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1d1d1f;
+}
+
+/* --- 4. 个人书库/影库：六宫格浮空方块 --- */
+.lib-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.lib-box {
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.lib-box:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    z-index: 2;
+}
+
+
+/* 书籍排名列表 *//*自主添加*/
+.ranking-list {
+    list-style: none;
+}
+.ranking-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f5f5f7;
+    border-radius: 12px;
+}
+.rank-badge {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #e0e0e0;
+    margin-right: 15px;
+    width: 30px;
+}
+.rank-1 { color: #FFD700; } /* 金牌色 */
+.rank-2 { color: #C0C0C0; } /* 银牌色 */
+.rank-3 { color: #CD7F32; } /* 铜牌色 */
+
+.book-info h4 { margin: 0; font-size: 1.1rem; }
+.book-meta { font-size: 0.8rem; color: #86868b; margin-top: 4px; }
+/**/
+
+/* 淡色背景配置 */
+.bg-soc { background: #e3f2fd; color: #1565c0; } /* 蓝 */
+.bg-eco { background: #e8f5e9; color: #2e7d32; } /* 绿 */
+.bg-psy { background: #f3e5f5; color: #7b1fa2; } /* 紫 */
+.bg-nov { background: #fff3e0; color: #ef6c00; } /* 橙 */
+.bg-bio { background: #ffebee; color: #c62828; } /* 红 */
+.bg-hlt { background: #e0f2f1; color: #00695c; } /* 青 */
+.bg-mov1 { background: #e1f5fe; color: #0277bd; }
+.bg-mov2 { background: #fce4ec; color: #c2185b; }
+.bg-mov3 { background: #fff8e1; color: #fbc02d; }
+.bg-mov4 { background: #f3e5f5; color: #8e24aa; }
+
+/* 详情列表 (默认隐藏) */
+.lib-detail-list {
+    display: none; /* 默认隐藏 */
+    animation: fadeIn 0.4s ease;
+}
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    background: #f5f5f7;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #0071e3;
+}
+.back-btn:hover { background: #e8e8ed; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- 音乐列表优化 --- */
+.music-group h4 { margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
+.singer-tags span { margin-right: 15px; font-size: 1.1rem; font-weight: 500; }
+.singer-tags small { color: #86868b; font-size: 0.9em; margin-left: 2px; }
+.song-list li { padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
+
+
+/* --- 📱 手机端终极适配 (强制修复尺寸) --- */
 @media (max-width: 768px) {
-    /* 1. 缩小 Hero 区域字体，避免换行尴尬 */
-    .hero-text h1 { font-size: 3.5rem; letter-spacing: -1px; }
-    .hero-text p { font-size: 1.2rem; }
-    
-    /* 2. 调整板块间距和容器圆角 */
-    .section { padding: 60px 20px; }
-    .glass-container { padding: 30px 20px; border-radius: 30px; }
-    .title { font-size: 2.2rem; margin-bottom: 30px; }
+    /* 1. 容器修复：防止被撑爆 */
+    .glass-container {
+        width: 100% !important; /* 强制占满 */
+        max-width: 100% !important;
+        box-sizing: border-box; /* 边框计算在内 */
+        padding: 30px 20px !important;
+        border-radius: 24px;
+        margin: 0;
+    }
 
-    /* 3. 让详情页的双栏布局在手机上变单栏 */
-    .two-col-layout {
-        display: block; /* 强制垂直排列 */
-    }
-    .score-grid {
-        grid-template-columns: 1fr; /* 分数卡片上下排 */
-    }
-    
-    /* 4. 详情弹窗适配 */
-    .modal-content {
-        padding: 30px 20px;
-        width: 95%;
-    }
-    .score-num { font-size: 2rem; }
+    /* 2. Hero 文字修复 */
+    .hero-text h1 { font-size: 3rem; }
+    .hero-text p { font-size: 1.1rem; padding: 0 20px; }
 
-    /* 5. 底部适配 */
-    .footer-content {
-        flex-direction: column;
-        gap: 30px;
-    }
+    /* 3. 网格变单列 */
+    .grid, .fav-grid { grid-template-columns: 1fr; gap: 15px; }
     
-    /* 6. 导航栏自适应：在手机上隐藏英文小字节省空间 */
-    .nav-links a small { display: none; }
-    .nav-links a { margin-left: 15px; font-size: 14px; }
+    /* 4. 底部交互变垂直 */
+    .footer-interactive { flex-direction: column; gap: 15px; }
+    
+    /* 5. 弹窗修复 */
+    .modal-content { 
+        padding: 25px; 
+        width: 90%; 
+        max-height: 80vh; 
+        overflow-y: auto; 
+    }
 }

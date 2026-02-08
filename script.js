@@ -67,7 +67,7 @@ document.querySelectorAll('.scroll-hidden').forEach(el => {
 const data = {
     'fudan': `
         <h2>复旦大学 <br><small style="color:#86868b;font-size:0.6em;font-weight:300">Fudan University</small></h2>
-        <p>在社会政策专业的学习中，我致力于探索宏观政策对个体微观生活的影响...</p>
+        <p>即将入读......</p>
         <p>Looking at the impact of macro policies on individual lives...</p>
     `,
 'gdufs': `
@@ -83,7 +83,7 @@ const data = {
             <h3 class="subsection-title">🎓 学术表现</h3>
             <div class="score-grid">
                 <div class="score-card main-score" style="background: #2e7d32;"> <span class="score-label">学分绩点</span>
-                    <span class="score-num">83/100</span>
+                    <span class="score-num">83</span>
                     <span class="score-sub">GPA Score</span>
                 </div>
                 <div class="score-card">
@@ -185,8 +185,8 @@ const data = {
                             <p>每周三训，多次登台公演</p>
                         </li>
                         <li>
-                            <strong>手抄报大赛一等奖</strong>
-                            <p>统筹策划，带领班级团队夺冠</p>
+                            <strong>区手抄报大赛一等奖</strong>
+                            <p>统筹策划，组建团队，脱颖而出</p>
                         </li>
                     </ul>
                 </div>
@@ -207,7 +207,7 @@ const data = {
             <h3 class="subsection-title">📊 运营数据</h3>
             <div class="score-grid">
                 <div class="score-card main-score" style="background: #ffc107; color: #000;">
-                    <span class="score-label" style="color: rgba(0,0,0,0.6);">月实现盈利</span>
+                    <span class="score-label" style="color: rgba(0,0,0,0.6);">单兵作战-实现月盈利</span>
                     <span class="score-num" style="color: #000;">¥2000+</span>
                     <span class="score-sub" style="color: rgba(0,0,0,0.5);">Monthly Profit</span>
                 </div>
@@ -248,11 +248,11 @@ const data = {
                         </li>
                         <li>
                             <strong>供应链协调能力</strong>
-                            <p>与麦当劳门店深度协调备货节奏，确保高频大单的即时交付。</p>
+                            <p>与麦当劳门店相互配合协调备货节奏，确保高频大单的即时交付。</p>
                         </li>
                         <li>
                             <strong>规模化与竞争管理</strong>
-                            <p>由于市场火爆引发大量抄袭，后通过招募兼职、优化SOP，成功实现管理转型。</p>
+                            <p>开拓校园配新赛道后来模仿者层出不穷，因兼有其他实习招募兼职、优化SOP，成功实现管理转型。</p>
                         </li>
                     </ul>
                 </div>
@@ -268,33 +268,226 @@ const data = {
         <h2>两次手术 <br><small style="color:#86868b;font-size:0.6em;font-weight:300">Surgeries</small></h2>
         <p>这是我人生的暂停键。在无法奔跑的日子里，我学会了向内探索。</p>
     `,
+
+
     'books': `
-        <h2>我的书单 <br><small style="color:#86868b;font-size:0.6em;font-weight:300">Book List</small></h2>
-        <ul>
-            <li>《悉达多》- 赫尔曼·黑塞</li>
-            <li>《社会政策导论》</li>
-            <li>《置身事内》</li>
-        </ul>
-    `
-    // 你可以继续添加其他 ID...
+        <div class="detail-header">
+            <h2>阅读世界 <br><small style="color:#86868b;font-size:0.6em;">Reading Space</small></h2>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tab-btn active" onclick="switchTab('book-rank', this)">🏆 荒岛书单</div>
+            <div class="tab-btn" onclick="switchTab('book-lib', this)">📚 个人书库</div>
+        </div>
+
+        <div class="detail-content">
+            <div id="book-rank" class="tab-view">
+                <ul class="ranking-list">
+                    <li class="ranking-item"><span class="rank-badge rank-1">1</span><div class="book-info"><h4>献给阿尔吉侬的花束</h4><div class="book-meta">[美] 丹尼尔·凯斯</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-2">2</span><div class="book-info"><h4>社会学入门</h4><div class="book-meta">[美] 詹姆斯·汉斯林</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-3">3</span><div class="book-info"><h4>撒哈拉的故事</h4><div class="book-meta">[中] 三毛</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">4</span><div class="book-info"><h4>纳瓦尔宝典</h4><div class="book-meta">[美] 埃里克·乔根森</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">5</span><div class="book-info"><h4>1984</h4><div class="book-meta">[英] 乔治·奥威尔</div></div></li>
+                </ul>
+            </div>
+
+            <div id="book-lib" class="tab-view" style="display:none;">
+                <div id="lib-grid-view" class="lib-grid">
+                    <div class="lib-box bg-soc" onclick="showLibDetail('soc')">社会学<br><small>Sociology</small></div>
+                    <div class="lib-box bg-eco" onclick="showLibDetail('eco')">经济学<br><small>Economics</small></div>
+                    <div class="lib-box bg-psy" onclick="showLibDetail('psy')">心理学<br><small>Psychology</small></div>
+                    <div class="lib-box bg-nov" onclick="showLibDetail('nov')">小说<br><small>Fiction</small></div>
+                    <div class="lib-box bg-bio" onclick="showLibDetail('bio')">传记<br><small>Biography</small></div>
+                    <div class="lib-box bg-hlt" onclick="showLibDetail('hlt')">健康<br><small>Health</small></div>
+                </div>
+
+                <div id="soc" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
+                    <h3>🏛 社会学书架</h3>
+                    <div class="book-tags"><span class="book-tag">乡土中国</span><span class="book-tag">自杀论</span></div>
+                </div>
+                <div id="eco" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
+                    <h3>💰 经济学书架</h3>
+                    <div class="book-tags"><span class="book-tag">置身事内</span><span class="book-tag">小岛经济学</span></div>
+                </div>
+                <div id="nov" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
+                    <h3>🖋 小说书架</h3>
+                    <div class="book-tags"><span class="book-tag">活着</span><span class="book-tag">悉达多</span></div>
+                </div>
+                 <div id="psy" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>🧠 心理学</h3><p>暂无记录</p></div>
+                 <div id="bio" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>📜 传记</h3><p>暂无记录</p></div>
+                 <div id="hlt" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>❤️ 健康</h3><p>暂无记录</p></div>
+            </div>
+        </div>
+    `,
+
+    // --- 新：观影 (双模态) ---
+    'movies': `
+        <div class="detail-header">
+            <h2>观影记录 <br><small style="color:#86868b;font-size:0.6em;">Cinematheque</small></h2>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tab-btn active" onclick="switchTab('mov-rank', this)">🎬 Top 3</div>
+            <div class="tab-btn" onclick="switchTab('mov-lib', this)">💾 个人影库</div>
+        </div>
+
+        <div class="detail-content">
+            <div id="mov-rank" class="tab-view">
+                 <ul class="ranking-list">
+                    <li class="ranking-item"><span class="rank-badge rank-1">1</span><h4>哈尔的移动城堡</h4></li>
+                    <li class="ranking-item"><span class="rank-badge rank-2">2</span><h4>面子 (Saving Face)</h4></li>
+                    <li class="ranking-item"><span class="rank-badge rank-3">3</span><h4>机器人之梦</h4></li>
+                </ul>
+            </div>
+
+            <div id="mov-lib" class="tab-view" style="display:none;">
+                <div id="mov-grid-view" class="lib-grid">
+                    <div class="lib-box bg-mov1" onclick="showMovDetail('ani')">动画电影<br><small>Animation</small></div>
+                    <div class="lib-box bg-mov2" onclick="showMovDetail('sci')">科幻电影<br><small>Sci-Fi</small></div>
+                    <div class="lib-box bg-mov3" onclick="showMovDetail('sus')">悬疑电影<br><small>Suspense</small></div>
+                    <div class="lib-box bg-mov4" onclick="showMovDetail('dra')">剧情电影<br><small>Drama</small></div>
+                </div>
+
+                <div id="ani" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
+                    <h3>动画电影</h3>
+                    <div class="book-tags"><span class="book-tag">哈尔的移动城堡</span><span class="book-tag">机器人之梦</span><span class="book-tag">悬崖上的金鱼姬</span><span class="book-tag">千与千寻</span></div>
+                </div>
+                <div id="sci" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
+                    <h3>科幻电影</h3>
+                    <div class="book-tags"><span class="book-tag">Her</span><span class="book-tag">星际穿越</span><span class="book-tag">黄金罗盘</span></div>
+                </div>
+                <div id="sus" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
+                    <h3>悬疑电影</h3>
+                    <div class="book-tags"><span class="book-tag">穆赫兰道</span><span class="book-tag">搏击俱乐部</span></div>
+                </div>
+                <div id="dra" class="lib-detail-list">
+                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
+                    <h3>剧情电影</h3>
+                    <div class="book-tags"><span class="book-tag">面子</span><span class="book-tag">猫鼠游戏</span><span class="book-tag">末路狂花</span></div>
+                </div>
+            </div>
+        </div>
+    `,
+
+    // --- 新：音乐 (简洁列表) ---
+    'music': `
+        <div class="detail-header">
+            <h2>音乐收藏 <br><small style="color:#86868b;font-size:0.6em;">Music Taste</small></h2>
+        </div>
+        <div class="detail-content music-group">
+            <h4> 喜爱的歌手</h4>
+            <div class="singer-tags">
+                <span>Capper <small>(Rapper)</small></span>
+                <span>Taylor Swift <small>(Pop)</small></span>
+                <span>陈粒 <small>(Folk)</small></span>
+            </div>
+
+            <h4>循环单曲</h4>
+            <ul class="clean-list song-list">
+                <li>仲夏夜的梦</li>
+                <li>Call it what you want</li>
+                <li>绝对占有相对自由</li>
+            </ul>
+        </div>
+    `,
+
+    'fitness': `<h2>健身习惯</h2><p>保持强壮的身体，是支撑野心的基础。</p>`
 };
 
-// 弹窗逻辑
 function openDetail(id) {
     const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    
+    if (!modal || !modalBody) {
+        console.error("找不到弹窗元素！请检查 HTML 中是否有 id='modal' 和 id='modal-body'");
+        return;
+    }
+
     const content = data[id] || "<h2>内容完善中</h2><p>Coming Soon...</p>";
-    document.getElementById('modal-body').innerHTML = content;
+    modalBody.innerHTML = content;
     modal.style.display = 'flex';
 }
 
 function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+    const modal = document.getElementById('modal');
+    if (modal) modal.style.display = 'none';
 }
 
-// 点击背景关闭弹窗
+// 点击背景关闭
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target == modal) {
         closeModal();
     }
+}
+
+// 1. 切换 Tab (排行榜 vs 书库)
+function switchTab(targetId, btn) {
+    // 找到当前弹窗内的所有 View 和 Btn
+    const parent = btn.parentElement.parentElement;
+    const views = parent.querySelectorAll('.tab-view');
+    const btns = parent.querySelectorAll('.tab-btn');
+
+    // 隐藏所有视图，取消所有按钮激活状态
+    views.forEach(v => v.style.display = 'none');
+    btns.forEach(b => b.classList.remove('active'));
+
+    // 显示目标视图，激活点击的按钮
+    parent.querySelector('#' + targetId).style.display = 'block';
+    btn.classList.add('active');
+}
+
+// 2. 书籍：显示分类详情
+function showLibDetail(catId) {
+    document.getElementById('lib-grid-view').style.display = 'none'; // 隐藏九宫格
+    document.getElementById(catId).style.display = 'block'; // 显示对应列表
+}
+
+// 3. 书籍：返回九宫格
+function hideLibDetail() {
+    const lists = document.querySelectorAll('.lib-detail-list');
+    lists.forEach(l => l.style.display = 'none'); // 隐藏所有列表
+    document.getElementById('lib-grid-view').style.display = 'grid'; // 显示九宫格
+}
+
+// 4. 电影：显示分类详情 (逻辑同上)
+function showMovDetail(catId) {
+    document.getElementById('mov-grid-view').style.display = 'none';
+    document.getElementById(catId).style.display = 'block';
+}
+
+// 5. 电影：返回九宫格
+function hideMovDetail() {
+    const lists = document.querySelectorAll('.lib-detail-list');
+    lists.forEach(l => l.style.display = 'none');
+    document.getElementById('mov-grid-view').style.display = 'grid';
+}
+
+// --- 保持原有的 openDetail, closeModal, window.onclick 不变 ---
+function openDetail(id) {
+    const modal = document.getElementById('modal');
+    const modalBody = document.getElementById('modal-body');
+    if (!modal || !modalBody) return;
+    const content = data[id] || "<h2>内容完善中</h2><p>Coming Soon...</p>";
+    modalBody.innerHTML = content;
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+    const modal = document.getElementById('modal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+window.onclick = function(event) {
+    const modal = document.getElementById('modal');
+    if (event.target == modal) closeModal();
 }

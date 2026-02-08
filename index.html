@@ -96,25 +96,24 @@
         </section>
 
         <section id="favorites" class="section gray-bg">
-            <div class="glass-container scroll-hidden">
-                <h2 class="title">书 / 影 / 音 <span class="en-title">Favorites</span></h2>
-                <div class="fav-grid">
-                    <div class="fav-card" onclick="openDetail('books')">
-                        📖 <span>书籍 <small>Books</small></span>
-                    </div>
-                    <div class="fav-card" onclick="openDetail('music')">
-                        🎵 <span>音乐 <small>Music</small></span>
-                    </div>
-                    <div class="fav-card" onclick="openDetail('movies')">
-                        📺 <span>电视剧 <small>TV Series</small></span>
-                    </div>
-                    <div class="fav-card" onclick="openDetail('docs')">
-                        🎥 <span>纪录片 <small>Documentaries</small></span>
-                    </div>
+        <div class="glass-container scroll-hidden">
+            <h2 class="title">个人爱好 <span class="en-title">Personal Hobbies</span></h2>
+            <div class="fav-grid">
+                <div class="fav-card" onclick="openDetail('books')">
+                    阅读 <small>Reading</small>
+                </div>
+                <div class="fav-card" onclick="openDetail('movies')">
+                    观影 <small>Movies</small>
+                </div>
+                <div class="fav-card" onclick="openDetail('music')">
+                    音乐 <small>Music</small>
+                </div>
+                <div class="fav-card" onclick="openDetail('fitness')">
+                    健身 <small>Fitness</small>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
     <div id="modal" class="modal">
         <div class="modal-content glass-card">
@@ -124,5 +123,32 @@
     </div>
 
     <script src="script.js"></script>
+
+<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section" style="flex: 2;">
+                <h3>About Xuan.</h3>
+                <p>保持好奇，保持热爱。</p>
+                <p>Stay curious, stay hungry.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <a href="mailto:chenxuanxuan0115@gmail.com">邮件 Email ↗</a>
+                <a href="#">小红书 Red ↗</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <a href="#hero">主页 Home</a>
+                <a href="#experience">经历 Experience</a>
+                <a href="#favorites">爱好 Hobbies</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 陈炫璇. Designed & Built with interest.</p>
+        </div>
+    </footer>
 </body>
 </html>
