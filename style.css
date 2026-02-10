@@ -117,12 +117,6 @@ body {
 .close { position: absolute; right: 30px; top: 25px; font-size: 30px; color: var(--text-sub); transition: 0.2s; }
 .close:hover { color: var(--text-main); transform: rotate(90deg); }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-    .grid, .fav-grid, .milestone-flex { grid-template-columns: 1fr; flex-direction: column; }
-    .hero-text h1 { font-size: 4rem; }
-    .nav-links { display: none; }
-}
 
 /* 弹窗内容的标签样式 */
 .detail-tag {
@@ -251,13 +245,7 @@ body {
     gap: 30px;
 }
 
-/* 移动端适配：手机上变回单列 */
-@media (max-width: 600px) {
-    .two-col-layout {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-}
+
 /* --- 新增：底部交互 (Hover Reveal) --- */
 .footer-interactive {
     display: flex;
@@ -453,6 +441,9 @@ body {
 .bg-mov3 { background: #fff8e1; color: #fbc02d; }
 .bg-mov4 { background: #f3e5f5; color: #8e24aa; }
 
+/* ----自制的一些颜色*/
+.bg { background: #2e7d32;}
+
 /* 详情列表 (默认隐藏) */
 .lib-detail-list {
     display: none; /* 默认隐藏 */
@@ -472,12 +463,281 @@ body {
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- 音乐列表优化 --- */
-.music-group h4 { margin-top: 25px; margin-bottom: 10px; font-size: 1.2rem; }
-.singer-tags span { margin-right: 15px; font-size: 1.1rem; font-weight: 500; }
-.singer-tags small { color: #86868b; font-size: 0.9em; margin-left: 2px; }
-.song-list li { padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
 
+/* --- 1. 拟物化：复古书架 (Earth Tone Shelf) --- */
+.bookshelf-case {
+    background: #fdf5e6; /* 墙壁背景色 */
+    padding: 20px 10px;
+    border: 1px solid #d7ccc8;
+    border-radius: 8px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.05);
+}
+
+.shelf-row {
+    display: flex;
+    align-items: flex-end; /* 书籍底部对齐 */
+    justify-content: flex-start; /* 从左到右 */
+    padding: 0 10px;
+    height: 160px; /* 每层高度 */
+    border-bottom: 12px solid #5d4037; /* 木板厚度 */
+    margin-bottom: 20px;
+    position: relative;
+    /* 木板阴影 */
+    box-shadow: 0 10px 15px -5px rgba(0,0,0,0.3);
+}
+
+/* 极细书脊 */
+.thin-spine {
+    width: 32px; /* 极细宽度，一行能放很多 */
+    height: 90%; /* 默认高度 */
+    margin-right: 2px; /* 书之间的缝隙 */
+    border-radius: 2px;
+    writing-mode: vertical-rl;
+    font-size: 0.75rem; /* 小字体 */
+    color: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: inset 2px 0 5px rgba(0,0,0,0.2); /* 书脊立体感 */
+    position: relative;
+    font-family: serif; /* 衬线体更有书卷气 */
+    letter-spacing: 1px;
+}
+
+/* 随机高度模拟真实感 */
+.h-85 { height: 85%; }
+.h-90 { height: 90%; }
+.h-95 { height: 95%; }
+.h-100 { height: 98%; }
+
+.thin-spine:hover {
+    transform: translateY(-5px) scale(1.05);
+    z-index: 10;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+/* 土色系配色 (Earth Tones) */
+.tone-1 { background: #5d4037; } /* 深褐 */
+.tone-2 { background: #795548; } /* 褐 */
+.tone-3 { background: #8d6e63; } /* 浅褐 */
+.tone-4 { background: #a1887f; } /* 灰褐 */
+.tone-5 { background: #4e342e; } /* 焦褐 */
+.tone-6 { background: #3e2723; } /* 极深 */
+.tone-green { background: #33691e; } /* 墨绿 (老书皮感) */
+.tone-red { background: #b71c1c; } /* 暗红 (老书皮感) */
+
+/* 让详情面板“浮现”在书架上方，而不是被挤到下面 */
+.item-detail-view {
+    display: none;
+    position: absolute; /* 绝对定位 */
+    top: 50px;          /* 距离顶部的距离 */
+    left: 0;
+    width: 100%;
+    min-height: 250px;
+    background: white;
+    z-index: 100;       /* 确保在最上层 */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 -10px 30px rgba(0,0,0,0.1); /* 增加阴影感 */
+    border: 1px solid #eee;
+    animation: slideUp 0.3s ease-out; /* 增加一个弹出的动画 */
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 调整分类书架容器，确保绝对定位生效 */
+.lib-detail-list {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+
+/* --- 2. 拟物化：胶卷影库 (Film Strip) --- */
+.film-container {
+    overflow-x: auto; /* 允许横向滚动 */
+    padding: 20px 0;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.film-strip {
+    display: inline-flex;
+    background: #1a1a1a;
+    padding: 15px 0;
+    /* 上下齿孔效果：使用虚线边框模拟 */
+    border-top: 4px dashed #555;
+    border-bottom: 4px dashed #555;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    gap: 20px;
+}
+
+.film-frame {
+    min-width: 140px;
+    height: 100px;
+    background: #000;
+    margin: 0 10px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.film-frame:hover {
+    transform: scale(1.1);
+    border-color: #fff;
+    z-index: 2;
+}
+
+/* 胶卷内的文字 */
+.film-content {
+    color: #ddd;
+    text-align: center;
+    font-family: 'Courier New', monospace; /* 打字机字体 */
+    font-size: 0.85rem;
+    z-index: 2;
+}
+
+/* 胶卷光泽感 */
+.film-frame::after {
+    content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 60%);
+    pointer-events: none;
+}
+
+
+/* --- 3. 拟物化：黑胶唱片 (Vinyl) --- */
+.vinyl-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+.vinyl-record {
+    width: 100px; height: 100px;
+    background: #111;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.vinyl-record:hover { transform: rotate(360deg) scale(1.1); }
+/* 唱片纹路 */
+.vinyl-record::before {
+    content: ''; position: absolute; width: 96%; height: 96%;
+    border-radius: 50%;
+    background: repeating-radial-gradient(#111, #111 2px, #222 3px);
+}
+/* 唱片中心贴纸 */
+.vinyl-label {
+    position: relative; z-index: 2;
+    width: 40%; height: 40%;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: bold; color: #fff;
+    text-align: center;
+}
+.label-rap { background: #e91e63; }
+.label-folk { background: #8bc34a; }
+.label-pop { background: #29b6f6; }
+.label-rock { background: #ff9800; }
+
+
+/* --- 4. 健身足迹 (简易点阵地图) --- */
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background: #f5f5f7;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+/* 这里用 CSS 模拟一个大致的中国地图轮廓背景，或者你可以放一张空白地图图片 */
+/* 为了代码纯净，这里用文字示意，实际效果建议换成一张 svg 背景图 */
+.china-outline {
+    width: 100%; height: 100%;
+    opacity: 0.1;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/2e/China_blank_map_grey.svg'); /* 引用一个公用地图素材 */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 地图上的点 */
+.map-dot {
+    position: absolute;
+    width: 12px; height: 12px;
+    background: #e0e0e0; /* 未点亮颜色 */
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.map-dot.active {
+    background: #0071e3; /* 点亮颜色 */
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0,113,227,0.4);
+}
+.map-dot:hover { transform: scale(1.5); }
+
+/* 悬浮提示框 */
+.map-tooltip {
+    position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: rgba(0,0,0,0.8); color: #fff;
+    padding: 8px 16px; border-radius: 20px; font-size: 0.8rem;
+    pointer-events: none; opacity: 0; transition: 0.3s;
+    white-space: nowrap;
+}
+.map-dot:hover ~ .map-tooltip { opacity: 1; } /* 极简 CSS 交互 */
+
+/* --- 通用：详情大卡片 (Books & Movies) --- */
+/* 保持你之前想要的设计 */
+.item-detail-view {
+    display: none; /* 默认隐藏 */
+    animation: fadeIn 0.4s;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+}
+.detail-hero {
+    display: flex; gap: 20px; margin-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0; padding-bottom: 20px;
+}
+.detail-cover {
+    width: 100px; height: 140px; background: #eee;
+    display: flex; align-items: center; justify-content: center;
+    color: #aaa; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.detail-main h2 { margin: 0 0 5px 0; font-size: 1.4rem; color: #1d1d1f; }
+.detail-meta { color: #86868b; font-size: 0.9rem; margin-bottom: 10px; }
+.rating-box { display: flex; gap: 10px; align-items: center; margin-top: 10px; }
+.score-badge { background: #fff3e0; color: #ef6c00; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+.my-score { color: #d32f2f; font-weight: bold; }
+.quote-card {
+    background: #f9f9f9; padding: 15px; border-left: 4px solid #8d6e63;
+    font-style: italic; color: #555; line-height: 1.6; margin-top: 15px;
+}
+
+.douban-rank { background: #dffdd7; color: rgb(32, 227, 2); padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
+.my-score2 { color: #046108; font-weight: bold; }
 
 /* --- 📱 手机端终极适配 (强制修复尺寸) --- */
 @media (max-width: 768px) {
@@ -509,3 +769,4 @@ body {
         overflow-y: auto; 
     }
 }
+

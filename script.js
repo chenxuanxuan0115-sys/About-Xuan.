@@ -265,7 +265,7 @@ const data = {
         <p>八年磨一剑。连续三年的400米冠军教会我:痛苦是成长的必经之路。</p>
     `,
     'surgery': `
-        <h2>两次手术 <br><small style="color:#86868b;font-size:0.6em;font-weight:300">Surgeries</small></h2>
+        <h2>两次康复 <br><small style="color:#86868b;font-size:0.6em;font-weight:300">Surgeries</small></h2>
         <p>这是我人生的暂停键。在无法奔跑的日子里，我学会了向内探索。</p>
     `,
 
@@ -304,178 +304,429 @@ const data = {
                 <div id="soc" class="lib-detail-list">
                     <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
                     <h3>🏛 社会学书架</h3>
-                    <div class="book-tags"><span class="book-tag">乡土中国</span><span class="book-tag">自杀论</span></div>
+                    <div class="bookshelf-case">
+                        <div class="shelf-row">
+                            <div class="thin-spine tone-1 h-95" onclick="showItemDetail('book-dt-xiangtu')">乡土中国</div>
+                            <div class="thin-spine tone-2 h-90" onclick="showItemDetail('book-dt-suicide')">自杀论</div>
+                            <div class="thin-spine tone-3 h-100">街角社会</div>
+                            <div class="thin-spine tone-4 h-85">日常生活的自我呈现</div>
+                            <div class="thin-spine tone-green h-90">新教伦理与资本主义</div>
+                        </div>
+                        <div class="shelf-row">
+                             <div class="thin-spine tone-1 h-100">金翼</div>
+                             <div class="thin-spine tone-2 h-85">江村经济</div>
+                             <div class="thin-spine tone-3 h-90"特权></div>
+                             <div class="thin-spine tone-4 h-95">我和我的二本学生</div>
+                        </div>
+                        <div class="shelf-row">
+                            <div class="thin-spine tone-5 h-95">社会学的想象力</div>
+                            <div class="thin-spine tone-5 h-85">见树又见林/</div>
+                            <div class="thin-spine tone-red h-90">天真的人类学家</div>
+                        </div>
+                    </div>
+
+                    <div id="book-dt-xiangtu" class="item-detail-view">
+                        <div class="back-btn" onclick="closeItemDetail('soc-shelf-view')">← 回到书架</div>
+                        <div class="detail-hero">
+                            <div class="detail-cover">封面</div>
+                            <div class="detail-main">
+                                <h2>乡土中国</h2><p>费孝通 | 1947</p>
+                                <span class="score-badge">豆瓣 9.1</span>
+                                <span class="rating-tag"> 我的评分: ⭐⭐⭐⭐⭐</span>
+                            <div class="detail-meta" style="margin-top:5px;">📅 阅读时间: 2020.12</div>    
+                            </div>
+                         </div>
+                         <div class="detail-content">
+                              <p><strong>核心观点：</strong>中国是一个差序格局的社会。</p>
+                         </div>
+                    </div>
+
+                    <div id="book-dt-suicide" class="item-detail-view">
+                         <div class="back-btn" onclick="closeItemDetail('soc-shelf-view')">← 返回书架</div>
+                        <div class="detail-hero">
+                             <div class="detail-cover">封面</div>
+                             <div class="detail-main">
+                                 <h2>自杀论</h2><p>涂尔干 | 社会学经典</p>
+                                 <div class="rating-row">
+                                     <span class="score-badge">豆瓣 9.1</span>
+                                     <span class="rating-tag"> 我的评分: ⭐⭐⭐⭐⭐</span>
+                            <div class="detail-meta" style="margin-top:5px;">📅 阅读时间: 2020.12</div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="detail-content">
+                              <p><strong>核心观点：</strong>自杀不仅仅是个人行为，它反映了社会整合度的强弱。</p>
+                         </div>
+                     </div> 
                 </div>
+
                 <div id="eco" class="lib-detail-list">
                     <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
                     <h3>💰 经济学书架</h3>
-                    <div class="book-tags"><span class="book-tag">置身事内</span><span class="book-tag">小岛经济学</span></div>
+                    <div class="bookshelf-case">
+                        <div class="shelf-row">
+                            <div class="thin-spine tone-1 h-95" onclick="showItemDetail('book-dt-bide')">彼得林奇</div>
+                            <div class="thin-spine tone-2 h-90" onclick="showItemDetail('book-dt-suicide')">自杀论</div>
+                            <div class="thin-spine tone-3 h-100">街角社会</div>
+                            <div class="thin-spine tone-4 h-85">日常生活的自我呈现</div>
+                            <div class="thin-spine tone-green h-90">新教伦理与资本主义</div>
+                        </div>
+                        <div class="shelf-row">
+                             <div class="thin-spine tone-1 h-100">金翼</div>
+                             <div class="thin-spine tone-2 h-85">江村经济</div>
+                             <div class="thin-spine tone-3 h-90"特权></div>
+                             <div class="thin-spine tone-4 h-95">我和我的二本学生</div>
+                        </div>
+                        <div class="shelf-row">
+                            <div class="thin-spine tone-5 h-95">社会学的想象力</div>
+                            <div class="thin-spine tone-5 h-85">见树又见林/</div>
+                            <div class="thin-spine tone-red h-90">天真的人类学家</div>
+                        </div>
+                    </div>
+                    
+                    <div id="book-dt-bide" class="item-detail-view">
+                        <div class="back-btn" onclick="closeItemDetail('eco-shelf-view')">← 回到书架</div>
+                        <div class="detail-hero">
+                            <div class="detail-cover">封面</div>
+                            <div class="detail-main">
+                                <h2>彼得林奇</h2><p>彼得林奇 | 1947</p>
+                                <span class="score-badge">豆瓣 9.1</span>
+                                <span class="rating-tag"> 我的评分: ⭐⭐⭐⭐⭐</span>
+                            <div class="detail-meta" style="margin-top:5px;">📅 阅读时间: 2020.12</div>    
+                            </div>
+                         </div>
+                         <div class="detail-content">
+                              <p><strong>核心观点：</strong>中国是一个差序格局的社会。</p>
+                         </div>
+                    </div>
+
+                    <div id="book-dt-suicide" class="item-detail-view">
+                         <div class="back-btn" onclick="closeItemDetail('eco-shelf-view')">← 返回书架</div>
+                        <div class="detail-hero">
+                             <div class="detail-cover">封面</div>
+                             <div class="detail-main">
+                                 <h2>自杀论</h2><p>涂尔干 | 社会学经典</p>
+                                 <div class="rating-row">
+                                     <span class="score-badge">豆瓣 9.1</span>
+                                     <span class="rating-tag"> 我的评分: ⭐⭐⭐⭐⭐</span>
+                            <div class="detail-meta" style="margin-top:5px;">📅 阅读时间: 2020.12</div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="detail-content">
+                              <p><strong>核心观点：</strong>自杀不仅仅是个人行为，它反映了社会整合度的强弱。</p>
+                         </div>
+                     </div>
                 </div>
-                <div id="nov" class="lib-detail-list">
+
+            
+
+                <div id="nov-shelf-view" class="lib-detail-list">
                     <div class="back-btn" onclick="hideLibDetail()">← 返回分类</div>
                     <h3>🖋 小说书架</h3>
-                    <div class="book-tags"><span class="book-tag">活着</span><span class="book-tag">悉达多</span></div>
+                    <div class="bookshelf-case">
+                        <div class="shelf-row">
+                            <div class="thin-spine tone-red h-95">活着</div>
+                            <div class="thin-spine tone-1 h-90">悉达多</div>
+                        </div>
+                         <div class="shelf-row"></div>
+                         <div class="shelf-row"></div>
+                    </div>
                 </div>
-                 <div id="psy" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>🧠 心理学</h3><p>暂无记录</p></div>
-                 <div id="bio" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>📜 传记</h3><p>暂无记录</p></div>
-                 <div id="hlt" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回分类</div><h3>❤️ 健康</h3><p>暂无记录</p></div>
+                
+                <div id="psy-shelf-view" class="lib-detail-list"><div class="back-btn" onclick="hideLibDetail()">← 返回</div><h3>心理学</h3><p>暂无</p></div>
+
             </div>
         </div>
     `,
-
-    // --- 新：观影 (双模态) ---
+ // --- 2. 观影记录 (胶卷风格 + 详情) ---
     'movies': `
         <div class="detail-header">
             <h2>观影记录 <br><small style="color:#86868b;font-size:0.6em;">Cinematheque</small></h2>
         </div>
         
         <div class="tab-container">
-            <div class="tab-btn active" onclick="switchTab('mov-rank', this)">🎬 Top 3</div>
+            <div class="tab-btn active" onclick="switchTab('mov-rank', this)">🎬 人生电影</div>
             <div class="tab-btn" onclick="switchTab('mov-lib', this)">💾 个人影库</div>
         </div>
 
         <div class="detail-content">
             <div id="mov-rank" class="tab-view">
-                 <ul class="ranking-list">
-                    <li class="ranking-item"><span class="rank-badge rank-1">1</span><h4>哈尔的移动城堡</h4></li>
-                    <li class="ranking-item"><span class="rank-badge rank-2">2</span><h4>面子 (Saving Face)</h4></li>
-                    <li class="ranking-item"><span class="rank-badge rank-3">3</span><h4>机器人之梦</h4></li>
+                <ul class="ranking-list">
+                    <li class="ranking-item"><span class="rank-badge rank-1">1</span><div class="book-info"><h4>哈尔的移动城堡</h4><div class="book-meta">[日] 宫崎骏</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-2">2</span><div class="book-info"><h4>面子</h4><div class="book-meta">[美] 伍思薇</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-3">3</span><div class="book-info"><h4>机器人之梦</h4><div class="book-meta">[西] 巴勃罗·贝格尔</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">4</span><div class="book-info"><h4>her</h4><div class="book-meta">[美] 斯派克·琼斯</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">5</span><div class="book-info"><h4>三傻大闹宝莱坞</h4><div class="book-meta">[印] 拉吉库马尔·希拉尼</div></div></li>
                 </ul>
             </div>
 
             <div id="mov-lib" class="tab-view" style="display:none;">
-                <div id="mov-grid-view" class="lib-grid">
-                    <div class="lib-box bg-mov1" onclick="showMovDetail('ani')">动画电影<br><small>Animation</small></div>
-                    <div class="lib-box bg-mov2" onclick="showMovDetail('sci')">科幻电影<br><small>Sci-Fi</small></div>
-                    <div class="lib-box bg-mov3" onclick="showMovDetail('sus')">悬疑电影<br><small>Suspense</small></div>
-                    <div class="lib-box bg-mov4" onclick="showMovDetail('dra')">剧情电影<br><small>Drama</small></div>
+                
+                <h3 class="subsection-title">Animation / 动画</h3>
+                <div class="film-container">
+                    <div class="film-strip">
+                        <div class="film-frame" onclick="showItemDetail('mov-dt-howl')"><div class="film-content">哈尔的<br>移动城堡</div></div>
+                        <div class="film-frame" onclick="showItemDetail('mov-dt-robot')"><div class="film-content">机器人<br>之梦</div></div>
+                        <div class="film-frame"><div class="film-content">千与千寻</div></div>
+                        <div class="film-frame"><div class="film-content">悬崖上的<br>金鱼姬</div></div>
+                    </div>
                 </div>
 
-                <div id="ani" class="lib-detail-list">
-                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
-                    <h3>动画电影</h3>
-                    <div class="book-tags"><span class="book-tag">哈尔的移动城堡</span><span class="book-tag">机器人之梦</span><span class="book-tag">悬崖上的金鱼姬</span><span class="book-tag">千与千寻</span></div>
+                <h3 class="subsection-title">Sci-Fi & Drama / 科幻</h3>
+                <div class="film-container">
+                    <div class="film-strip">
+                        <div class="film-frame"><div class="film-content">her</div></div>
+                        <div class="film-frame"><div class="film-content">星际穿越</div></div>
+                        <div class="film-frame"><div class="film-content">黄金罗盘</div></div>
+                    </div>
                 </div>
-                <div id="sci" class="lib-detail-list">
-                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
-                    <h3>科幻电影</h3>
-                    <div class="book-tags"><span class="book-tag">Her</span><span class="book-tag">星际穿越</span><span class="book-tag">黄金罗盘</span></div>
+
+                <h3 class="subsection-title"> Scary / 悬疑</h3>
+                <div class="film-container">
+                    <div class="film-strip">
+                        <div class="film-frame"><div class="film-content">her</div></div>
+                        <div class="film-frame"><div class="film-content">穆赫兰道</div></div>
+                        <div class="film-frame"><div class="film-content">搏击俱乐部</div></div>
+                        <div class="film-frame"><div class="film-content">谍影重重</div></div>
+                    </div>
                 </div>
-                <div id="sus" class="lib-detail-list">
-                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
-                    <h3>悬疑电影</h3>
-                    <div class="book-tags"><span class="book-tag">穆赫兰道</span><span class="book-tag">搏击俱乐部</span></div>
+
+                <h3 class="subsection-title">love / 爱情</h3>
+                <div class="film-container">
+                    <div class="film-strip">
+                        <div class="film-frame"><div class="film-content">面子</div></div>
+                        <div class="film-frame"><div class="film-content">末路狂花</div></div>
+                        <div class="film-frame"><div class="film-content"></div></div>
+                        <div class="film-frame"><div class="film-content">穆赫兰道</div></div>
+                    </div>
                 </div>
-                <div id="dra" class="lib-detail-list">
-                    <div class="back-btn" onclick="hideMovDetail()">← 返回影库</div>
-                    <h3>剧情电影</h3>
-                    <div class="book-tags"><span class="book-tag">面子</span><span class="book-tag">猫鼠游戏</span><span class="book-tag">末路狂花</span></div>
+                
+                <div id="mov-dt-howl" class="item-detail-view" style="margin-top:20px;">
+                    <div class="back-btn" onclick="closeItemDetail('mov-lib-root')">← 关闭详情</div>
+                    <div class="detail-hero">
+                        <div class="detail-cover">海报</div>
+                        <div class="detail-main">
+                            <h2>哈尔的移动城堡</h2>
+                            <div class="detail-meta">宫崎骏 | 2004</div>
+                            <div class="rating-box">
+                                <span class="douban-rank">豆瓣 9.1</span>
+                                <span class="my-score2">我的评分: ⭐⭐⭐⭐⭐</span>
+                            </div>
+                            <div class="detail-meta" style="margin-top:5px;">📅 观看时间: 2020.12</div>
+                        </div>
+                    </div>
+                    <div class="quote-card">“世界这么大，人生这么长，总会有这么一个人，让你想要温柔的对待。”</div>
                 </div>
+                 <div id="mov-dt-robot" class="item-detail-view" style="margin-top:20px;">
+                    <div class="back-btn" onclick="closeItemDetail('mov-lib-root')">← 关闭详情</div>
+                     <h2>机器人之梦</h2><p>详情补充中...</p>
+                </div>
+
             </div>
         </div>
-    `,
+    `,               
+    
 
-    // --- 新：音乐 (简洁列表) ---
-    'music': `
+     
+    // --- 我的修改版：音乐  ---
+    'musics': `
         <div class="detail-header">
-            <h2>音乐收藏 <br><small style="color:#86868b;font-size:0.6em;">Music Taste</small></h2>
+            <h2>音乐收藏 <br><small style="color:#86868b;font-size:0.6em;">Reading Space</small></h2>
         </div>
-        <div class="detail-content music-group">
-            <h4> 喜爱的歌手</h4>
-            <div class="singer-tags">
-                <span>Capper <small>(Rapper)</small></span>
-                <span>Taylor Swift <small>(Pop)</small></span>
-                <span>陈粒 <small>(Folk)</small></span>
-            </div>
+        
+        <div class="tab-container">
+            <div class="tab-btn active" onclick="switchTab('music-rank', this)">💿 最爱专辑</div>
+            <div class="tab-btn" onclick="switchTab('music-lib', this)">🎵 个人曲库</div>
+        </div>
 
-            <h4>循环单曲</h4>
-            <ul class="clean-list song-list">
-                <li>仲夏夜的梦</li>
-                <li>Call it what you want</li>
-                <li>绝对占有相对自由</li>
-            </ul>
+        <div class="detail-content">
+            <div id="music-rank" class="tab-view">
+                <ul class="ranking-list">
+                    <li class="ranking-item"><span class="rank-badge rank-1">1</span><div class="book-info"><h4>如也</h4><div class="book-meta"「民谣」 陈粒</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-2">2</span><div class="book-info"><h4>Reputation</h4><div class="book-meta">「流行」 Taylor Swift</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge rank-3">3</span><div class="book-info"><h4>this is what ___ feels like</h4><div class="book-meta">「流行」 Jvke</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">4</span><div class="book-info"><h4>?</h4><div class="book-meta">「嘻哈」 XXXTENTACION</div></div></li>
+                    <li class="ranking-item"><span class="rank-badge">5</span><div class="book-info"><h4>浴室</h4><div class="book-meta">「摇滚」 deca joins</div></div></li>
+                </ul>
+            </div>
+            <div id="music-lib" class="tab-view" style="display:none;">
+                
+                <div id="vinyl-view" class="vinyl-grid">
+                    <div class="vinyl-record" onclick="showItemDetail('rap-list')">
+                        <div class="vinyl-label label-rap">Hiphop<br>嘻哈</div>
+                    </div>
+                    <div class="vinyl-record" onclick="showItemDetail('folk-list')">
+                        <div class="vinyl-label label-folk">Folk<br>民谣</div>
+                    </div>
+                    <div class="vinyl-record" onclick="showItemDetail('pop-list')">
+                        <div class="vinyl-label label-pop">Pop<br>流行</div>
+                    </div>
+                     <div class="vinyl-record" onclick="showItemDetail('rock-list')">
+                        <div class="vinyl-label label-rap">Hiphop<br>摇滚</div>
+                    </div>
+                    <div class="vinyl-record" onclick="showItemDetail('electric-list')">
+                        <div class="vinyl-label label-folk">Folk<br>电子</div>
+                    </div>
+                </div>
+
+                <div id="rap-list" class="lib-detail-list" style="display:none;">
+                    <div class="back-btn" onclick="closeItemDetail('vinyl-view')">← 返回唱片架</div>
+                    <h3>🎤 Hiphop Collection</h3>
+                    <ul class="clean-list">
+                        <li>🎵 Kanye West - Runaway</li>
+                        <li>🎵 Capper - 雪 Distance</li>
+                        <li>🎵 Travis Scott - FE!N</li>
+                    </ul>
+                </div>
+                
+                <div id="folk-list" class="lib-detail-list" style="display:none;">
+                     <div class="back-btn" onclick="closeItemDetail('vinyl-view')">← 返回唱片架</div>
+                     <h3>🎸 Folk Collection</h3>
+                     <p>歌曲列表...</p>
+                </div>
+                 <div id="pop-list" class="lib-detail-list">
+                     <div class="back-btn" onclick="closeItemDetail('vinyl-view')">← 返回唱片架</div>
+                     <h3>✨ Pop Collection</h3>
+                     <p>歌曲列表...</p>
+                </div>
+
+            </div>
         </div>
     `,
+// --- 3. 健身 (地图足迹 + 习惯) ---
+    'fitness': `
+         <div class="detail-header">
+            <h2>健身与足迹 <br><small style="color:#86868b;font-size:0.6em;">Body & Soul</small></h2>
+        </div>
+        
+        <div class="tab-container">
+            <div class="tab-btn active" onclick="switchTab('fit-map', this)">🗺️ 健身足迹</div>
+            <div class="tab-btn" onclick="switchTab('fit-habit', this)">💪 健身习惯</div>
+        </div>
 
-    'fitness': `<h2>健身习惯</h2><p>保持强壮的身体，是支撑野心的基础。</p>`
+        <div class="detail-content">
+            <div id="fit-map" class="tab-view">
+                <div class="map-wrapper">
+                    <div class="china-outline"></div>
+                    <div class="map-dot active" style="top: 80%; left: 65%;" onclick="alert('📍 广州：\nOneFit 健身工作室 (珠江新城店)\n打分：⭐⭐⭐⭐')"></div>
+                    <div class="map-tooltip" style="top: 75%; left: 65%;">广州</div>
+                    
+                    <div class="map-dot active" style="top: 55%; left: 80%;" onclick="alert('📍 上海：\nPure Fitness (南京西路)\n打分：⭐⭐⭐⭐⭐')"></div>
+                    
+                    <div class="map-dot" style="top: 35%; left: 72%;"></div>
+                </div>
+                <p style="text-align:center; color:#86868b; font-size:0.8rem;">点击亮起的点查看健身房记录</p>
+                
+                <h3 class="subsection-title">打卡列表</h3>
+                <ul class="clean-list">
+                    <li><strong>OneFit 健身工作室</strong> <p>广州 · 珠江新城 | 2023.10 | 器械很全，氛围好</p></li>
+                    <li><strong>Pure Fitness</strong> <p>上海 · 南京西路 | 2024.01 | 环境顶级，价格略贵</p></li>
+                </ul>
+            </div>
+
+            <div id="fit-habit" class="tab-view" style="display:none;">
+                <div class="score-grid">
+                    <div class="score-card main-score">
+                        <div class="score-label">每周频率</div>
+                        <div class="score-num">4-5</div>
+                        <div class="score-sub">Times / Week</div>
+                    </div>
+                    <div class="score-card">
+                        <div class="score-label">偏好项目</div>
+                        <div class="score-text">🏋️‍♀️ 自由力量 (深蹲/硬拉)<br>🏃‍♀️ 晨间空腹有氧<br>🧘‍♀️ 普拉提</div>
+                    </div>
+                </div>
+                <h3 class="subsection-title">我的信条</h3>
+                <div class="quote-card" style="border-left-color: #000;">
+                    “保持强壮的身体，是支撑野心的基础。”
+                </div>
+            </div>
+        </div>
+    `,
 };
 
-function openDetail(id) {
-    const modal = document.getElementById('modal');
-    const modalBody = document.getElementById('modal-body');
-    
-    if (!modal || !modalBody) {
-        console.error("找不到弹窗元素！请检查 HTML 中是否有 id='modal' 和 id='modal-body'");
-        return;
-    }
 
-    const content = data[id] || "<h2>内容完善中</h2><p>Coming Soon...</p>";
-    modalBody.innerHTML = content;
-    modal.style.display = 'flex';
-}
+// --- 逻辑控制函数 ---
 
-function closeModal() {
-    const modal = document.getElementById('modal');
-    if (modal) modal.style.display = 'none';
-}
-
-// 点击背景关闭
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target == modal) {
-        closeModal();
-    }
-}
-
-// 1. 切换 Tab (排行榜 vs 书库)
+// 1. 顶部 Tab 切换 (排行榜 vs 书库)
 function switchTab(targetId, btn) {
-    // 找到当前弹窗内的所有 View 和 Btn
     const parent = btn.parentElement.parentElement;
     const views = parent.querySelectorAll('.tab-view');
     const btns = parent.querySelectorAll('.tab-btn');
-
-    // 隐藏所有视图，取消所有按钮激活状态
+    
     views.forEach(v => v.style.display = 'none');
     btns.forEach(b => b.classList.remove('active'));
-
-    // 显示目标视图，激活点击的按钮
+    
     parent.querySelector('#' + targetId).style.display = 'block';
     btn.classList.add('active');
 }
 
-// 2. 书籍：显示分类详情
-function showLibDetail(catId) {
-    document.getElementById('lib-grid-view').style.display = 'none'; // 隐藏九宫格
-    document.getElementById(catId).style.display = 'block'; // 显示对应列表
+// 2. 书库分类层级控制
+// 点击六宫格 -> 进入具体分类 (如社会学书架)
+function showLibDetail(shelfId) {
+    // 隐藏六宫格
+    const grid = document.getElementById('lib-grid-view');
+    if(grid) grid.style.display = 'none';
+
+    // 显示目标书架
+    const target = document.getElementById(shelfId);
+    if(target) target.style.display = 'block';
 }
 
-// 3. 书籍：返回九宫格
+// 点击“返回分类” -> 回到六宫格
 function hideLibDetail() {
-    const lists = document.querySelectorAll('.lib-detail-list');
-    lists.forEach(l => l.style.display = 'none'); // 隐藏所有列表
-    document.getElementById('lib-grid-view').style.display = 'grid'; // 显示九宫格
-}
-
-// 4. 电影：显示分类详情 (逻辑同上)
-function showMovDetail(catId) {
-    document.getElementById('mov-grid-view').style.display = 'none';
-    document.getElementById(catId).style.display = 'block';
-}
-
-// 5. 电影：返回九宫格
-function hideMovDetail() {
+    // 隐藏所有分类书架
     const lists = document.querySelectorAll('.lib-detail-list');
     lists.forEach(l => l.style.display = 'none');
-    document.getElementById('mov-grid-view').style.display = 'grid';
+
+    // 显示六宫格
+    const grid = document.getElementById('lib-grid-view');
+    if(grid) grid.style.display = 'grid';
 }
 
-// --- 保持原有的 openDetail, closeModal, window.onclick 不变 ---
+// 3. 物品详情控制 (书籍/电影详情)
+// 点击书脊/胶卷 -> 显示详情卡片
+function showItemDetail(itemId) {
+    // 1. 找到所有的详情页，先全部隐藏，防止重叠
+    const allDetails = document.querySelectorAll('.item-detail-view');
+    allDetails.forEach(d => d.style.display = 'none');
+
+    // 2. 显示目标的详情页
+    const target = document.getElementById(itemId);
+    if(target) target.style.display = 'block';
+}
+
+// 点击详情页的“返回” -> 关闭详情，回到当前书架/列表
+// parentViewId 是指你刚才所在的那个书架的 ID (例如 'soc-shelf-view')
+function closeItemDetail(parentViewId) {
+    // 隐藏所有详情页
+    const allDetails = document.querySelectorAll('.item-detail-view');
+    allDetails.forEach(d => d.style.display = 'none');
+
+    // 如果是电影库，特殊处理：因为电影库没有六宫格，直接回列表
+    if(parentViewId === 'mov-lib-root') {
+        // 这里的逻辑是：只关闭详情，因为胶卷列表是一直显示在上面的 (Tab View里)
+        // 实际上什么都不用做，或者你可以做滚动定位
+        return; 
+    }
+
+    // 对于书籍，回到对应的分类书架
+    const shelf = document.getElementById(parentViewId);
+    if(shelf) shelf.style.display = 'block';
+}
+
+// 4. 基础弹窗打开/关闭 (保持不变)
 function openDetail(id) {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
     if (!modal || !modalBody) return;
-    const content = data[id] || "<h2>内容完善中</h2><p>Coming Soon...</p>";
-    modalBody.innerHTML = content;
+    
+    // 获取数据，如果 key 对应的数据是 music 但用户传了 musics，做个兼容
+    let content = data[id];
+    if(!content && id === 'music') content = data['musics']; 
+
+    modalBody.innerHTML = content || "<h2>内容完善中</h2>";
     modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
@@ -487,6 +738,7 @@ function closeModal() {
         document.body.style.overflow = 'auto';
     }
 }
+
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target == modal) closeModal();
